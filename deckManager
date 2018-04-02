@@ -44,10 +44,10 @@ def initDraw(pl):
     print("You got: ")
     for i in range(5):
         pl.inventory = (supplyDeck[i])
-        print pl.inventory
+        print (pl.inventory)
         ''' Loop needs to be iterated through all four players
-        so that all players get a full hand of supply cards
-        that code will go here. At this point, we need to start 
+        so that all players get a full hand of supply cards.
+        That code will go here. At this point, we need to start 
         merging the other pieces of code so we can run it from
         "the top"
         '''           
