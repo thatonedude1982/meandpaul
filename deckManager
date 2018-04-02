@@ -2,56 +2,58 @@
 import itertools, random
 from player import Player as pl
 
-i = 0
-deck = list(itertools.product(range(0,26)))
+i = 0 # establishing global var to iterate through shuffled deck. 
+# need to find a way to store this number so each card is not drawn
+# from the top of the deck. Also, need to figure out how to treat
+# each card as unique.
+supplyDeck = list(itertools.product(range(0,26)))
 
 #shuffle
-def randomize(deck):
-    random.shuffle(deck)
+def randomize():   # shuffles the supply deck
+    random.shuffle(supplyDeck)
 
-#populating Supply deck list with supply cards
-deck[0] = "100 Bullets"
-deck[1] = "100 Bullets"
-deck[2] = "Clothes"
-deck[3] = "Clothes"
-deck[4] = "Clothes"
-deck[5] = "Oxen"
-deck[6] = "Oxen"
-deck[7] = "Oxen"
-deck[8] = "Clean Water"
-deck[9] = "Clean Water"
-deck[10] = "Clean Water"
-deck[11] = "Clean Water"
-deck[12] = "Clean Water"
-deck[13] = "200 Lbs of Food"
-deck[14] = "200 Lbs of Food"
-deck[15] = "200 Lbs of Food"
-deck[16] = "Spare Parts"
-deck[17] = "Spare Parts"
-deck[18] = "Spare Parts"
-deck[19] = "Spare Parts"
-deck[20] = "Medicine"
-deck[21] = "Medicine"
-deck[22] = "Medicine"
-deck[23] = "Medicine"
-deck[24] = "Medicine"
-deck[25] = "Medicine"
+#populating supply list
+supplyDeck[0] = "100 Bullets"
+supplyDeck[1] = "100 Bullets"
+supplyDeck[2] = "Clothes"
+supplyDeck[3] = "Clothes"
+supplyDeck[4] = "Clothes"
+supplyDeck[5] = "Oxen"
+supplyDeck[6] = "Oxen"
+supplyDeck[7] = "Oxen"
+supplyDeck[8] = "Clean Water"
+supplyDeck[9] = "Clean Water"
+supplyDeck[10] = "Clean Water"
+supplyDeck[11] = "Clean Water"
+supplyDeck[12] = "Clean Water"
+supplyDeck[13] = "200 Lbs of Food"
+supplyDeck[14] = "200 Lbs of Food"
+supplyDeck[15] = "200 Lbs of Food"
+supplyDeck[16] = "Spare Parts"
+supplyDeck[17] = "Spare Parts"
+supplyDeck[18] = "Spare Parts"
+supplyDeck[19] = "Spare Parts"
+supplyDeck[20] = "Medicine"
+supplyDeck[21] = "Medicine"
+supplyDeck[22] = "Medicine"
+supplyDeck[23] = "Medicine"
+supplyDeck[24] = "Medicine"
+supplyDeck[25] = "Medicine"
 
-
-
-
-def initDraw():
+def initDraw(pl):
     print("You got: ")
     for i in range(5):
-        self.deck = (deck[i])
-        return self.inventory
-
-def draw():
+        pl.inventory = (supplyDeck[i])
+        print pl.inventory
+        ''' Loop needs to be iterated through all four players
+        so that all players get a full hand of supply cards
+        that code will go here. At this point, we need to start 
+        merging the other pieces of code so we can run it from
+        "the top"
+        '''           
+def draw(pl):
     print("You got: ")
-    print(deck[i])
-        
-    
-        
+    print(supplyDeck[i])
 
 def discard():
     print ("test")    
@@ -59,8 +61,9 @@ def discard():
 def buy():
     print("test")
 
-randomize(deck)
-print (deck)
+randomize() # this print is just in to test shuffle function
+print (supplyDeck)
 
-initDraw()
-draw()
+initDraw(pl) # this is for first draw of game where players get 5 cards
+
+draw(pl)# this is for any subsequent draws made by players.
