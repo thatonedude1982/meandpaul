@@ -1,0 +1,66 @@
+#module for keeping track of the decks of cards that have been turned in or have yet to be picked up
+import itertools, random
+from player import Player as pl
+
+i = 0
+deck = list(itertools.product(range(0,26)))
+
+#shuffle
+def randomize(deck):
+    random.shuffle(deck)
+
+#populating Supply deck list with supply cards
+deck[0] = "100 Bullets"
+deck[1] = "100 Bullets"
+deck[2] = "Clothes"
+deck[3] = "Clothes"
+deck[4] = "Clothes"
+deck[5] = "Oxen"
+deck[6] = "Oxen"
+deck[7] = "Oxen"
+deck[8] = "Clean Water"
+deck[9] = "Clean Water"
+deck[10] = "Clean Water"
+deck[11] = "Clean Water"
+deck[12] = "Clean Water"
+deck[13] = "200 Lbs of Food"
+deck[14] = "200 Lbs of Food"
+deck[15] = "200 Lbs of Food"
+deck[16] = "Spare Parts"
+deck[17] = "Spare Parts"
+deck[18] = "Spare Parts"
+deck[19] = "Spare Parts"
+deck[20] = "Medicine"
+deck[21] = "Medicine"
+deck[22] = "Medicine"
+deck[23] = "Medicine"
+deck[24] = "Medicine"
+deck[25] = "Medicine"
+
+
+
+
+def initDraw():
+    print("You got: ")
+    for i in range(5):
+        self.deck = (deck[i])
+        return self.inventory
+
+def draw():
+    print("You got: ")
+    print(deck[i])
+        
+    
+        
+
+def discard():
+    print ("test")    
+
+def buy():
+    print("test")
+
+randomize(deck)
+print (deck)
+
+initDraw()
+draw()
