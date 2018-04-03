@@ -1,5 +1,5 @@
 class Player(object):
-
+    inventory = []
     def __init__(self, playerName, playerNumber):
         self.name = playerName
         self.number = playerNumber
@@ -8,6 +8,7 @@ class Player(object):
         self.Cholera = False
         self.Typhoid = False
         self.Measles = False
+        self.inventory = list()
         pass
 
     def setName(self, playerName):
