@@ -12,7 +12,46 @@ trailInventory = list()#establishing player hand size at 6
 numberPlayers = 0
 players = list()
 
-def trailDeckBuild():
+def buildCalamityDeck(calamityDeck):
+    i = 0
+    while i < 32:
+        if i < 2:
+            calamityDeck.append("Bad Water")
+        elif i < 4:
+            calamityDeck.append("Inadequate Grass")
+        elif i < 6:
+            calamityDeck.append("Extreme Cold")
+        elif i < 8:
+            calamityDeck.append("Broken Tongue")
+        elif i < 10:
+            calamityDeck.append("Broken Axle")
+        elif i < 12:
+            calamityDeck.append("Broken Wheel")
+        elif i < 14:
+            calamityDeck.append("Dead Oxen")
+        elif i < 16:
+            calamityDeck.append("Cholera")
+        elif i < 18:
+            calamityDeck.append("Typhoid")
+        elif i < 20:
+            calamityDeck.append("Measles")
+        elif i < 22:
+            calamityDeck.append("Dysentery")
+        elif i < 24:
+            calamityDeck.append("Food")
+        elif i < 26:
+            calamityDeck.append("Starvation")
+        elif i < 28:
+            calamityDeck.append("Snake Bite")
+        elif i < 30:
+            calamityDeck.append("Thief")
+        elif i < 32:
+            calamityDeck.append("Broken Arm")
+            i += 1
+        randomize(calamityDeck) 
+        return calamityDeck
+
+def trailDeckBuild(trailCards):
     print ("Building...")
     for i in range(len(trailCards)):
         if i < 8:
@@ -63,7 +102,7 @@ def initTrailDraw(): #Same function as initDraw for supply cards reworked for tr
             trailInventory.append(trailCards[globCounter1])
             globCounter1 += 1
     
-    return trailInventory
+    return (trailInventory)
 
 def trailDraw():
     global globCounter1
@@ -88,11 +127,11 @@ def trailDraw():
             globCounter1 += 1
             return drawnCard
 
-class Player(object):
+class Player():
 
-    def __init__(self, playerName, playerNumber):
-        self.name = playerName
-        self.number = playerNumber
+    def __init__(self):
+        self.name = " "
+        self.number = " "
         self.dead = False
         self.turnsUntilDead = 50
         self.Cholera = False
@@ -135,7 +174,7 @@ class Player(object):
 def randomize(list):   
     random.shuffle(list)
     
-def createSupplyDeck():
+def createSupplyDeck(supplyDeck):
     supplyDeck = list(itertools.product(range(26)))
 
     #populating supply list
@@ -197,89 +236,30 @@ def draw(pl):
             globcounter = 0
 
 def buildPlayers():
-    numberPlayers = input("How many travelers are making the journey? ")
-    players = dict()
+    numberPlayers = int(input("How many travelers are making the journey? "))
+    players = list()
     i = 1
-    from player import Player as pl
-    while i <= int(numberPlayers):
-        players[i-1]=raw_input("Please enter {}'s name:".format(i))
-        i+=1
-    for item in players:
-        print (players[item].name)
-        print (players[item].number)
-        players[item].trailHand = initTrailDraw()
-        print (players[item].trailHand)
-        os.system("pause")
-
-def buildCalamityDeck():
-    i = 0
-    while i < 32:
-        if i < 2:
-            calamityDeck.append("Bad Water")
-        elif i < 4:
-            calamityDeck.append("Inadequate Grass")
-        elif i < 6:
-            calamityDeck.append("Extreme Cold")
-        elif i < 8:
-            calamityDeck.append("Broken Tongue")
-        elif i < 10:
-            calamityDeck.append("Broken Axle")
-        elif i < 12:
-            calamityDeck.append("Broken Wheel")
-        elif i < 14:
-            calamityDeck.append("Dead Oxen")
-        elif i < 16:
-            calamityDeck.append("Cholera")
-        elif i < 18:
-            calamityDeck.append("Typhoid")
-        elif i < 20:
-            calamityDeck.append("Measles")
-        elif i < 22:
-            calamityDeck.append("Dysentery")
-        elif i < 24:
-            calamityDeck.append("Food")
-        elif i < 26:
-            calamityDeck.append("Starvation")
-        elif i < 28:
-            calamityDeck.append("Snake Bite")
-        elif i < 30:
-            calamityDeck.append("Thief")
-        elif i < 32:
-            calamityDeck.append("Broken Arm")
-            i += 1
-        randomize(calamityDeck) 
-        return calamityDeck
-
-def gameStart():
-    buildPlayers()
-    trailDeckBuild()
+    while i <= numberPlayers:
+        name = input("Please enter player {}'s name: ".format(i))
+        players.append(name)
+        name = Player()
+        i += 1
+    trailDeckBuild(trailCards)
     randomize(trailCards)
-    createSupplyDeck()
+    createSupplyDeck(supplyDeck)
     randomize(supplyDeck)
-    buildCalamityDeck()
+    buildCalamityDeck(calamityDeck)
     randomize(calamityDeck)
     print (trailCards)
-    print (supplyDeck)
     print (calamityDeck)
+    print(supplyDeck)
     
-
-    #menu call
-    #if(menu.initialMenu()) == 1:
-        #buildPlayers()    
-    
-    #code for test purposes#
-    drawnCard = ""
-    drawnCard = trailDraw()
-    #players[0].trailHand.append(drawnCard)
-    #print (players[0].trailHand)
-    print ("Yes")
-    drawnCard = trailDraw()
-    #players[1].trailHand.append(drawnCard)
-    #print (players[1].trailHand)
-    ########################
+def gameStart():
+    pass
 
 
 def playerTurn():
     print (numberPlayers)
 
-gameStart()
+buildPlayers()
+
