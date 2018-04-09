@@ -7,9 +7,10 @@ import os
 import deckManager as deck
 from calamity import CalamityCard as cal
 from player import Player as pl
+ 
 
 
-
+players = {}
 
 
 """
@@ -38,11 +39,14 @@ def gameStart():
 
     #menu call
     if(menu.initialMenu()) == 1:
-        buildPlayers()    
+        buildPlayers()  
+
+    menu.playerTurnMenu(players[0])
 
 def buildPlayers():
         numberPlayers = input("How many travelers are making the journey? ")
-        players = {}
+        
+        global players
 
         i = 1
         while i <= int(numberPlayers):
@@ -60,7 +64,5 @@ def buildPlayers():
             print(players[item].supplies)
             os.system("pause")
 
-
-#def playerTurn():
 
 gameStart()

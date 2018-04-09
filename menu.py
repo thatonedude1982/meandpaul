@@ -55,27 +55,27 @@ def playerTurnMenu(player):
         action = input("{}\n{}\n{}\n".format(opt0, opt1, opt2))
 
         if action.upper() == "D":
-            showHand(trailHand, supplyHand)
+            showHand(player.inventory, player.supplies)
     #player action
         if action.upper() == "T":
-            handSize = len(trailHand)
+            handSize = len(player.inventory)
             #print("Which card would you like to play?")
         #print(player.trailHand)
             for i in range(handSize):
-                print ("{}. {}".format(i, trailHand[i]))
+                print ("{}. {}".format(i, player.inventory[i]))
 
             card = int(input("Which card to you want to play? \n"))
 
-            playTrail(trailHand[card], supplyHand)
+            playTrail(player.inventory[card], player.supplies)
             #call function for card action
             #call function/ insert code to remove card from list
 
         if action.upper() == "S":
-            handSize = len(supplyHand)
+            handSize = len(player.supplies)
             print("Which card would you like to play?")
         #print(player.trailHand)
             for i in range(handSize):
-                print ("{}. {}".format(i, supplyHand[i]))
+                print ("{}. {}".format(i, player.supplies[i]))
 
         else:
             print("That is not a valid option. Please choose again.")
@@ -98,7 +98,7 @@ def showHand(trails, supplies):
         print ("{}. {}".format(i, supplies[i]))
     #pull up player's dealt cards
 
-def playTrail(card, hand): #import player instead of supply hand
+def playTrail(card, player): #import player instead of supply hand
     if card == "Blank Trail":
         print("You've traveled without any issues.")
 
@@ -112,15 +112,15 @@ def playTrail(card, hand): #import player instead of supply hand
             print("You have failed to ford the river. Please choose one supply to lose:")
             amount = len(hand)
             for i in range(amount):
-                print("{}. {}".format(i, hand[i]))
+                print("{}. {}".format(i, player.supplies[i]))
             dropSupply = int(input())
             print ("You are losing {}".format(hand[dropSupply]))
     
-    if card == "Trail Calamity":
+    #if card == "Trail Calamity":
         
 
     
 #def networkSetup():
     #choose server or client
 
-playerTurnMenu("Shawn")
+#playerTurnMenu("Shawn")
