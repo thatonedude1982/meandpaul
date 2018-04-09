@@ -1,0 +1,7 @@
+Amount	Type	Cond1	Cond2	Cond3
+8	Safe	none	none	none
+2	Fort	+2 Sup	none	none
+2	Town	+1 Sup 	-1 Cal	none
+24	Calam	+1 Cal	none	none
+17	River1	/2 Ford	-1 Sup	none
+3	River2	/2 Ford	die	pass

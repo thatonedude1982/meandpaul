@@ -1,0 +1,8 @@
+amount	cardName
+2	100 Bullets
+3	Clothes
+3	Oxen
+5	Clean Water
+3	200lbs Food
+4	Spare Parts
+6	Medicine
