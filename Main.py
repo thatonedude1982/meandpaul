@@ -11,7 +11,7 @@ from player import Player as pl
 
 
 players = {}
-
+turns = 0
 
 """
 Begin Game
@@ -63,6 +63,19 @@ def buildPlayers():
             players[item].supplies = supply.initDraw()
             print(players[item].supplies)
             os.system("pause")
+
+def turnCounter():
+    global turns
+    turns += 1
+    pass
+
+def playerTurn():
+    global turns
+    turns2 = turns
+    if turns2 + numberPlayers * 2 >= turns:
+        killPlayer()
+        numberPlayers -+ 1
+
 
 
 gameStart()
